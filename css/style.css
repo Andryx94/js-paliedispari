@@ -1,5 +1,39 @@
 /* Generali */
 body {
 font-family: 'Roboto', sans-serif;
+text-align: center;
+background-color: darkolivegreen;
+}
+
+*:focus {
+    outline: none;
+}
+
+h2 {
+  text-transform: uppercase;
+  color: white;
+  font-weight: 800;
+  text-shadow:0px 0px 8px black;
+}
+
+input, button {
+  text-align: center;
+  border-radius: 20px;
+}
+
+p {
+  padding-top: 10px;
+  font-weight: 800;
+}
+
+#paridispari-numero {
+  width: 200px;
+}
+
+.container {
+  background-color: white;
+  border-radius: 20px;
+  box-shadow:0px 0px 8px black;
+  padding: 20px 0;
 }
 /* fine generali */

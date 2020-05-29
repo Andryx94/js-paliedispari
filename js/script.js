@@ -22,9 +22,9 @@ function palindromo(x) {
 
 //funzione pari e dispari
 function paridispari(a, b){
-  //condizioni validità + pari/dispari
+  //condizioni validità
   var condizione = a.toLowerCase();
-  if (a != "pari" && a != "dispari" || b<1 || b>5){
+  if (condizione != "pari" && condizione != "dispari" || b<1 || b>5){
     return("Inserisci correttamente i dati");
   }
 
@@ -34,28 +34,42 @@ function paridispari(a, b){
   var somma = numeroComputer + numeroUtente;
 
   //condizione risultato
-  if ((somma % 2 == 0) && a == "pari") {
-    return ("Hai indovinato! " + somma + " è pari.")
+  if ((somma % 2 == 0) && condizione == "pari") {
+    return ("Hai vinto! " + somma + " è pari")
   }
 
-  else if ((somma % 2 == 0) && a == "dispari") {
-    return ("Hai perso! " + somma + " è pari.")
+  else if ((somma % 2 == 1) && condizione == "dispari") {
+    return ("Hai vinto! " + somma + " è dispari")
   }
 
-  else if ((somma % 2 == 1) && a == "dispari") {
-    return ("Hai indovinato! " + somma + " è dispari.")
+  else if ((somma % 2 == 0) && condizione == "dispari") {
+    return ("Hai perso! " + somma + " è pari")
   }
 
   else {
-    return ("Hai perso!! " + somma + " è dispari.")
+    return ("Hai perso!! " + somma + " è dispari")
   }
 }
 
 //interazione palindromo
-var parola = prompt("Dimmi una parola");
-alert(parola + " " + palindromo(parola));
+var parola = document.getElementById('palindromo');
+var palindromoBottone = document.getElementById('palindromo-bottone');
+var palindromoRisultato = document.getElementById('palindromo-risultato');
+
+palindromoBottone.addEventListener('click',
+function() {
+  palindromoRisultato.innerHTML = (parola.value + " " + palindromo(parola.value));
+}
+);
 
 //interazione pari e dispari
-var condizione = prompt("Dimmi pari o dispari");
-var numero = prompt("Dimmi un numero da 1 a 5");
-alert(paridispari(condizione, numero));
+var condizione = document.getElementById('paridispari');
+var numero = document.getElementById('paridispari-numero');
+var pariDispariBottone = document.getElementById('paridispari-bottone');
+var pariDispariRisultato = document.getElementById('paridispari-risultato');
+
+pariDispariBottone.addEventListener('click',
+function() {
+  pariDispariRisultato.innerHTML = (paridispari(condizione.value, numero.value));
+}
+);
